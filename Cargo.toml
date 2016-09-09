@@ -1,0 +1,11 @@
+[package]
+name = "to_primitive"
+version = "0.1.0"
+authors = ["nathanfaucett <nathanfaucett@gmail.com>"]
+
+keywords = ["to_primitive", "primitive", "to", "primitive"]
+description = "to primitive trait"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/nathanfaucett/rs-to_primitive.git"
+homepage = "https://github.com/nathanfaucett/rs-to_primitive"
