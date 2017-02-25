@@ -1,36 +1,36 @@
 
 
 pub trait ToPrimitive {
-    fn to_bool(self) -> bool;
+    fn to_bool(&self) -> bool;
 
-    fn to_usize(self) -> usize;
-    fn to_u8(self) -> u8;
-    fn to_u16(self) -> u16;
-    fn to_u32(self) -> u32;
-    fn to_u64(self) -> u64;
+    fn to_usize(&self) -> usize;
+    fn to_u8(&self) -> u8;
+    fn to_u16(&self) -> u16;
+    fn to_u32(&self) -> u32;
+    fn to_u64(&self) -> u64;
 
-    fn to_isize(self) -> isize;
-    fn to_i8(self) -> i8;
-    fn to_i16(self) -> i16;
-    fn to_i32(self) -> i32;
-    fn to_i64(self) -> i64;
+    fn to_isize(&self) -> isize;
+    fn to_i8(&self) -> i8;
+    fn to_i16(&self) -> i16;
+    fn to_i32(&self) -> i32;
+    fn to_i64(&self) -> i64;
 
-    fn to_f32(self) -> f32;
-    fn to_f64(self) -> f64;
+    fn to_f32(&self) -> f32;
+    fn to_f64(&self) -> f64;
 }
 
 macro_rules! to_primitive {
     ($n:ident, $t:ident) => (
         #[inline(always)]
-        fn $n(self) -> $t { self as $t }
+        fn $n(&self) -> $t { *self as $t }
     );
 }
 
 macro_rules! to_primitive_bool {
     ($n:ident, $t:ident, $zero:expr) => (
         #[inline(always)]
-        fn $n(self) -> $t {
-            if self != $zero {true} else {false}
+        fn $n(&self) -> $t {
+            if *self != $zero {true} else {false}
         }
     );
 }
